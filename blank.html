@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Holy Grail</title>
+  </head>
+  <body>
+    <script>
+
+        const playerSelection = prompt("Please input paper, scissor or stone")
+        function getComputerChoice () {
+            var option = ["paper","scissor","stone"]
+            var randomnumber = Math.floor(Math.random()*option.length)
+            var computerSelection = option[randomnumber]
+            return computerSelection
+        }
+
+            var computerSelection = getComputerChoice()
+        function playround (playerSelection,computerSelection) {
+            playSelection=playSelection.toLowerCase()
+
+            if (playSelection === paper && computerSelection === stone) {
+                return "You win, paper beat stone"
+            }
+
+            if (playSelection === paper && computerSelection === scissor) {
+                return "Yoe lose, scissor beat paper"
+            }
+
+            if (playSelection === paper && computerSelection === paper) {
+                return "paper equal to paper"
+            }
+
+            if (playSelection === stone && computerSelection === scissor) {
+                return "You win, stone beat scissor"
+            }
+
+            if (playSelection === stone && computerSelection === paper) {
+                return "You lose, paper beat stone"
+            }
+
+            if (playSelection === stone && computerSelection === stone) {
+                return "stone equal to stone"
+            }
+
+            if (playSelection === scissor && computerSelection === paper) {
+                return "You win, scissor beat paper"
+            }
+
+            if (playSelection === scissor && computerSelection === stone) {
+                return "You lose, stone beat scissor"
+            }
+
+            if (playSelection === scissor && computerSelection === scissor) {
+                return "scissor equal to scissor"
+            }
+        }
+
+        console.log (playround (playerSelection,computerSelection))
+    </script>
+  </body>
