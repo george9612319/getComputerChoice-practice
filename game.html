@@ -8,25 +8,25 @@
   </head>
   <body>
     <script>
-
-        function game () {
         var youscore = 0;
         var computerscore =0;
+        function game () {
+
         for (var i=0; i<5; i++) {
             var playerSelection = prompt("Please input paper, scissor or stone")
             var computerSelection = getComputerChoice()
             playround (playerSelection,computerSelection)
         }
         if (youscore > computerscore) {
-            return "You win score: " + youscore + " : "+ computerscore 
+            console.log ( "You win score: " + youscore + " : "+ computerscore )
         }
 
         if (youscore === computerscore) {
-            return "noone win score: " + youscore + " : " + computerscore 
+            console.log ( "noone win score: " + youscore + " : " + computerscore )
         }
 
         if (youscore < computerscore) {
-            return "You lose score: " + youscore + " : " + computerscore
+            console.log ( "You lose score: " + youscore + " : " + computerscore)
         }
         }
 
@@ -41,50 +41,41 @@
             playerSelection.toLowerCase()
 
             if (playerSelection === "paper" && computerSelection === "stone") {
-                youscore = youscore++
-                return youscore
+                youscore += 1
             }
 
-            if (playerSelection === "paper" && computerSelection === "scissor") {
-                computerscore = computerscore++
-                return computerscore
+            else if (playerSelection === "paper" && computerSelection === "scissor") {
+                computerscore += 1
             }
 
-            if (playerSelection === "paper" && computerSelection === "paper") {
-                youscore = youscore+0
-                return youscore
+            else if (playerSelection === "paper" && computerSelection === "paper") {
+                
             }
 
-            if (playerSelection === "stone" && computerSelection === "scissor") {
-                youscore = youscore++
-                return youscore
+            else if (playerSelection === "stone" && computerSelection === "scissor") {
+                youscore += 1
             }
 
-            if (playerSelection === "stone" && computerSelection === "paper") {
-                computerscore = computerscore++
-                return computerscore
+            else if (playerSelection === "stone" && computerSelection === "paper") {
+                computerscore += 1
             }
 
-            if (playerSelection === "stone" && computerSelection === "stone") {
-                youscore = youscore+0
-                return youscore
+            else if (playerSelection === "stone" && computerSelection === "stone") {
+                
             }
 
-            if (playerSelection === "scissor" && computerSelection === "paper") {
-                youscore = youscore++
-                return youscore
+            else if (playerSelection === "scissor" && computerSelection === "paper") {
+                youscore += 1
             }
 
-            if (playerSelection === "scissor" && computerSelection === "stone") {
-                computerscore = computerscore++
-                return computerscore
+            else if (playerSelection === "scissor" && computerSelection === "stone") {
+                computerscore += 1
             }
 
-            if (playerSelection === "scissor" && computerSelection === "scissor") {
-                youscore = youscore+0
-                return youscore
+            else if (playerSelection === "scissor" && computerSelection === "scissor") {
+                
             }
         }
-
+        game()
     </script>
   </body>
