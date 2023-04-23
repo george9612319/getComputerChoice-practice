@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Holy Grail</title>
+  </head>
+  <body>
+    <script>
+
+        function game () {
+        var youscore = 0;
+        var computerscore =0;
+        for (var i=0; i<5; i++) {
+            var playerSelection = prompt("Please input paper, scissor or stone")
+            var computerSelection = getComputerChoice()
+            playround (playerSelection,computerSelection)
+        }
+        if (youscore > computerscore) {
+            return "You win score: " + youscore + " : "+ computerscore 
+        }
+
+        if (youscore === computerscore) {
+            return "noone win score: " + youscore + " : " + computerscore 
+        }
+
+        if (youscore < computerscore) {
+            return "You lose score: " + youscore + " : " + computerscore
+        }
+        }
+
+        function getComputerChoice () {
+            var option = ["paper","scissor","stone"]
+            var randomnumber = Math.floor(Math.random()*option.length)
+            var computerSelection = option[randomnumber]
+            return computerSelection
+        }
+
+        function playround (playerSelection,computerSelection) {
+            playerSelection.toLowerCase()
+
+            if (playerSelection === "paper" && computerSelection === "stone") {
+                youscore = youscore++
+                return youscore
+            }
+
+            if (playerSelection === "paper" && computerSelection === "scissor") {
+                computerscore = computerscore++
+                return computerscore
+            }
+
+            if (playerSelection === "paper" && computerSelection === "paper") {
+                youscore = youscore+0
+                return youscore
+            }
+
+            if (playerSelection === "stone" && computerSelection === "scissor") {
+                youscore = youscore++
+                return youscore
+            }
+
+            if (playerSelection === "stone" && computerSelection === "paper") {
+                computerscore = computerscore++
+                return computerscore
+            }
+
+            if (playerSelection === "stone" && computerSelection === "stone") {
+                youscore = youscore+0
+                return youscore
+            }
+
+            if (playerSelection === "scissor" && computerSelection === "paper") {
+                youscore = youscore++
+                return youscore
+            }
+
+            if (playerSelection === "scissor" && computerSelection === "stone") {
+                computerscore = computerscore++
+                return computerscore
+            }
+
+            if (playerSelection === "scissor" && computerSelection === "scissor") {
+                youscore = youscore+0
+                return youscore
+            }
+        }
+
+    </script>
+  </body>
