@@ -9,7 +9,7 @@
   <body>
     <script>
 
-        const playerSelection = prompt("Please input paper, scissor or stone")
+        var playerSelection = prompt("Please input paper, scissor or stone")
         function getComputerChoice () {
             var option = ["paper","scissor","stone"]
             var randomnumber = Math.floor(Math.random()*option.length)
@@ -19,41 +19,41 @@
 
             var computerSelection = getComputerChoice()
         function playround (playerSelection,computerSelection) {
-            playSelection=playSelection.toLowerCase()
+            playerSelection.toLowerCase()
 
-            if (playSelection === paper && computerSelection === stone) {
+            if (playerSelection === "paper" && computerSelection === "stone") {
                 return "You win, paper beat stone"
             }
 
-            if (playSelection === paper && computerSelection === scissor) {
+            if (playerSelection === "paper" && computerSelection === "scissor") {
                 return "Yoe lose, scissor beat paper"
             }
 
-            if (playSelection === paper && computerSelection === paper) {
+            if (playerSelection === "paper" && computerSelection === "paper") {
                 return "paper equal to paper"
             }
 
-            if (playSelection === stone && computerSelection === scissor) {
+            if (playerSelection === "stone" && computerSelection === "scissor") {
                 return "You win, stone beat scissor"
             }
 
-            if (playSelection === stone && computerSelection === paper) {
+            if (playerSelection === "stone" && computerSelection === "paper") {
                 return "You lose, paper beat stone"
             }
 
-            if (playSelection === stone && computerSelection === stone) {
+            if (playerSelection === "stone" && computerSelection === "stone") {
                 return "stone equal to stone"
             }
 
-            if (playSelection === scissor && computerSelection === paper) {
+            if (playerSelection === "scissor" && computerSelection === "paper") {
                 return "You win, scissor beat paper"
             }
 
-            if (playSelection === scissor && computerSelection === stone) {
+            if (playerSelection === "scissor" && computerSelection === "stone") {
                 return "You lose, stone beat scissor"
             }
 
-            if (playSelection === scissor && computerSelection === scissor) {
+            if (playerSelection === "scissor" && computerSelection === "scissor") {
                 return "scissor equal to scissor"
             }
         }
