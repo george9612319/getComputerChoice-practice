@@ -7,26 +7,28 @@
     <title>The Holy Grail</title>
   </head>
   <body>
+    <button onclick="game()">Click me!</button>
+    <p id="result"></p>
     <script>
-        var youscore = 0;
-        var computerscore =0;
-        function game () {
+        var youscore = 0
+        var computerscore =0
 
+        function game () {
         for (var i=0; i<5; i++) {
             var playerSelection = prompt("Please input paper, scissor or stone")
             var computerSelection = getComputerChoice()
             playround (playerSelection,computerSelection)
         }
         if (youscore > computerscore) {
-            console.log ( "You win score: " + youscore + " : "+ computerscore )
+            document.getElementById("result").innerHTML = "You win score: " + youscore + " : "+ computerscore;
         }
 
         if (youscore === computerscore) {
-            console.log ( "noone win score: " + youscore + " : " + computerscore )
+            document.getElementById("result").innerHTML = "Noone win score: " + youscore + " : "+ computerscore;
         }
 
         if (youscore < computerscore) {
-            console.log ( "You lose score: " + youscore + " : " + computerscore)
+            document.getElementById("result").innerHTML = "You lose score: " + youscore + " : "+ computerscore;
         }
         }
 
@@ -76,6 +78,6 @@
                 
             }
         }
-        game()
     </script>
   </body>
+</html>
