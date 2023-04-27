@@ -7,31 +7,65 @@
     <title>The Holy Grail</title>
   </head>
   <body>
-    <button onclick="game()">Click me!</button>
-    <p id="result"></p>
+    <button name="scissor">scissor</button>
+    <button name="paper">paper</button>
+    <button name="stone">stone</button>
+    <div id="result"></div>
     <script>
-        var youscore = 0
-        var computerscore =0
+        let youscore = 0;
+        let computerscore = 0;
 
-        function game () {
-        for (var i=0; i<5; i++) {
-            var playerSelection = prompt("Please input paper, scissor or stone")
-            var computerSelection = getComputerChoice()
-            playround (playerSelection,computerSelection)
-        }
-        if (youscore > computerscore) {
-            document.getElementById("result").innerHTML = "You win score: " + youscore + " : "+ computerscore;
+       const buttons = document.querySelectorAll('button');// select button element
+       buttons.forEach( button => button.addEventListener('click',playround));// after click botton excute playround function for each button
+       
+       //if player win, youscore +1. if computer win, computerscore+1
+        function playround (e) {
+            const playerSelection = e.target.name; // playerSelection = clicked button
+            const computerSelection = getComputerChoice();
+            if (playerSelection === "paper" && computerSelection === "stone") {
+                youscore += 1;
+            }
+
+            else if (playerSelection === "paper" && computerSelection === "scissor") {
+                computerscore += 1;
+            }
+
+            else if (playerSelection === "stone" && computerSelection === "scissor") {
+                youscore += 1;
+            }
+
+            else if (playerSelection === "stone" && computerSelection === "paper") {
+                computerscore += 1;
+            }
+
+            else if (playerSelection === "scissor" && computerSelection === "paper") {
+                youscore += 1;
+            }
+
+            else if (playerSelection === "scissor" && computerSelection === "stone") {
+                computerscore += 1;
+            }
+            console.log(`Player: ${playerSelection}, Computer: ${computerSelection}`);// show score in console
+            console.log('Your Score: ' + youscore + ', Computer Score: ' + computerscore );
+
+            const resultsDiv = document.getElementById('result');// show score in webpage
+            resultsDiv.innerHTML = 'Your Score: ' + youscore + ', Computer Score: ' + computerscore;
+
+            if ( youscore === 5 || computerscore === 5) {
+            console.log ('youscore : ' + youscore + ' computerscore : ' + computerscore);
+                if (youscore === 5) {
+                        const youwin = 'You win!!!, youscore :' + youscore + ' computerscore : ' + computerscore;
+                        resultsDiv.innerHTML = youwin; // show result in webpage
+                    }
+                if (computerscore === 5) {
+                        const computerwin = 'Computer win!!!, youscore :' + youscore + ' computerscore : ' + computerscore;
+                        resultsDiv.innerHTML = computerwin;
+                    }
+            resetGame();
+            }
         }
 
-        if (youscore === computerscore) {
-            document.getElementById("result").innerHTML = "Noone win score: " + youscore + " : "+ computerscore;
-        }
-
-        if (youscore < computerscore) {
-            document.getElementById("result").innerHTML = "You lose score: " + youscore + " : "+ computerscore;
-        }
-        }
-
+        // random generate paper, scissor, stone
         function getComputerChoice () {
             var option = ["paper","scissor","stone"]
             var randomnumber = Math.floor(Math.random()*option.length)
@@ -39,45 +73,13 @@
             return computerSelection
         }
 
-        function playround (playerSelection,computerSelection) {
-            playerSelection.toLowerCase()
-
-            if (playerSelection === "paper" && computerSelection === "stone") {
-                youscore += 1
-            }
-
-            else if (playerSelection === "paper" && computerSelection === "scissor") {
-                computerscore += 1
-            }
-
-            else if (playerSelection === "paper" && computerSelection === "paper") {
-                
-            }
-
-            else if (playerSelection === "stone" && computerSelection === "scissor") {
-                youscore += 1
-            }
-
-            else if (playerSelection === "stone" && computerSelection === "paper") {
-                computerscore += 1
-            }
-
-            else if (playerSelection === "stone" && computerSelection === "stone") {
-                
-            }
-
-            else if (playerSelection === "scissor" && computerSelection === "paper") {
-                youscore += 1
-            }
-
-            else if (playerSelection === "scissor" && computerSelection === "stone") {
-                computerscore += 1
-            }
-
-            else if (playerSelection === "scissor" && computerSelection === "scissor") {
-                
-            }
+        //reset game when one of the score is 5
+        function resetGame() {
+            youscore = 0;
+            computerscore = 0;
         }
+
+
     </script>
   </body>
 </html>
